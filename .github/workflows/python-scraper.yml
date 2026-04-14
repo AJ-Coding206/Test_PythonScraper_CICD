@@ -1,0 +1,35 @@
+name: Python Scraper CI/CD
+
+# 這裡定義觸發條件
+on:
+  # 1. 利用 git push 觸發 (當 push 到 main 分支時)
+  push:
+    branches: [ "main" ]
+  
+  # 2. 手動執行 (在 GitHub 介面會出現 Run workflow 按鈕)
+  workflow_dispatch:
+
+  # 3. 排程執行 (使用 Cron 語法，例如每天凌晨 0 點執行)
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 檢出程式碼
+      uses: actions/checkout@v4
+
+    - name: 設定 Python 環境
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: 安裝依賴套件
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 執行爬蟲腳本
+      run: python main.py
