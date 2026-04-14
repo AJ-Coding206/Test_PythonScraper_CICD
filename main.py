@@ -1,11 +1,15 @@
-# main.py
 import requests
 from bs4 import BeautifulSoup
+import urllib3
+
+# 關閉因安全性降低而產生的警告訊息
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def run_scraper():
     url = "https://example.com"
     try:
-        response = requests.get(url)
+        # 加入 verify=False 略過憑證檢查
+        response = requests.get(url, verify=False)
         soup = BeautifulSoup(response.text, 'html.parser')
         title = soup.find('h1').text
         print(f"成功抓取網頁標題: {title}")
