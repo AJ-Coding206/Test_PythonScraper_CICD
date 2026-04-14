@@ -3,15 +3,15 @@ name: Python Scraper CI/CD
 # 這裡定義觸發條件
 on:
   # 1. 利用 git push 觸發 (當 push 到 main 分支時)
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   
   # 2. 手動執行 (在 GitHub 介面會出現 Run workflow 按鈕)
   workflow_dispatch:
 
   # 3. 排程執行 (使用 Cron 語法，例如每天凌晨 0 點執行)
   schedule:
-    - cron: '15 14 * * *'
+    - cron: '19 14 * * *'
 
 jobs:
   build:
