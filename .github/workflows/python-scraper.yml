@@ -11,7 +11,7 @@ on:
 
   # 3. 排程執行 (使用 Cron 語法，例如每天凌晨 0 點執行)
   schedule:
-    - cron: '7 14 * * *'
+    - cron: '13 22 * * *'
 
 jobs:
   build:
