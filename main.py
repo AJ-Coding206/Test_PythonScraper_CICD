@@ -13,7 +13,7 @@ def run_scraper():
         # response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         title = soup.find('h1').text
-        print(f"成功抓取網頁標題78910: {title}")
+        print(f"成功抓取網頁標題7891011: {title}")
     except Exception as e:
         print(f"發生錯誤: {e}")
 
